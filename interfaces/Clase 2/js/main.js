@@ -24,8 +24,6 @@ function dibujar() {
     for (let z = 0; z < CANT_FIG; z++) {
         shapes[z].draw();
     }
-
-    
 }
 
 function addFigura(estilo) {
