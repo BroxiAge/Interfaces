@@ -7,8 +7,9 @@ class Linea extends Figura {
         ctx.beginPath();
         ctx.moveTo(this.posX, this.posY);   // Begin first sub-path
         ctx.lineTo(this.width, this.height);
-
+        ctx.strokeStyle = this.fill;
         ctx.stroke();
+        
     }
 
 }

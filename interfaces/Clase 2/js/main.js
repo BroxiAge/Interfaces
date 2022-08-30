@@ -2,25 +2,30 @@ let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
+let colour = "black"
 let shapes = [];
+
 
 const CANT_FIG = 30;
 
 function dibujar() {
-    let l = new Linea(0,0,canvas.width,canvas.height,"red",ctx);
+    
+    let l = new Linea(0, 0, canvasWidth, canvasHeight, colour, ctx);
     l.draw();
- for (let i = 0; i < CANT_FIG; i++) {
-    addFigura((i < (CANT_FIG / 2)));
-}
-for (let x = 0; x < CANT_FIG; x++) {
-    shapes[x].draw();
     
-}
-for (let z = 0; z < CANT_FIG; z++) {
-    shapes[z].draw();
-    
-} 
+    for (let i = 0; i < CANT_FIG; i++) {
+        addFigura((i < (CANT_FIG / 2)));
+    }
 
+    for (let x = 0; x < CANT_FIG; x++) {
+        shapes[x].draw();
+    }
+
+    for (let z = 0; z < CANT_FIG; z++) {
+        shapes[z].draw();
+    }
+
+    
 }
 
 function addFigura(estilo) {
@@ -32,7 +37,7 @@ function addFigura(estilo) {
     // ctx.fillStyle = color;
     // ctx.beginPath();
     if (estilo == true) {
-       let rect = new Rect(posX, posY, width, height, color, ctx);
+        let rect = new Rect(posX, posY, width, height, color, ctx);
         shapes.push(rect);
     }
     else {
