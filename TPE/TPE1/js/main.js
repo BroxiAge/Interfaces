@@ -37,8 +37,7 @@ function addFigura(estilo) {
     let width = Math.round(Math.random()*50+4)
     let height = Math.round(Math.random()*50+4)
     let color = getRandomRGBA();
-    // ctx.fillStyle = color;
-    // ctx.beginPath();
+ 
     if (estilo == true) {
         let rect = new Rect(posX, posY, width, height, color, ctx);
         shapes.push(rect);
