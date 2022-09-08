@@ -4,14 +4,12 @@ let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 let colour = "black"
 let shapes = [];
+let objetoActual = null;
 
 
 const CANT_FIG = 30;
 
 function dibujar() {
-    
-    let l = new Linea(0, 0, canvasWidth, canvasHeight, colour, ctx);
-    l.draw();
     
     for (let i = 0; i < CANT_FIG; i++) {
         addFigura((i < (CANT_FIG / 2)));
@@ -25,6 +23,13 @@ function dibujar() {
         shapes[z].draw();
     }
 }
+
+function actualizar() {
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, 900, 600);
+
+    dibujar();
+  }
 
 function addFigura(estilo) {
     let posX = Math.round(Math.random()*canvasWidth);
@@ -53,3 +58,28 @@ function getRandomRGBA () {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+canvas.onmousedown = function(event) {
+    let obj;
+    for (var i = 0; i < shapes.length; i++) {
+        obj = shapes[i];
+      if (obj.posX < event.clientX
+        && (obj.width + obj.posX > event.clientX)
+        
+      ) {
+        objetoActual = obj;
+        break;
+      }
+    }
+  }
+
+  canvas.onmousemove = function(event) {
+    
+    if (objetoActual != null) {
+    const x = event.clientX;
+    const y = event.clientY;
+
+    objetoActual.moveTo(x,y);
+    objetoActual.draw();
+    actualizar();
+    }
+  }

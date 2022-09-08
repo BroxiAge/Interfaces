@@ -1,4 +1,5 @@
 class Figura {
+    
     constructor (posX, posY, width, height, fill, context){
         this.posX = posX;
         this.posY = posY;
@@ -16,4 +17,5 @@ class Figura {
         this.posX = posX;
         this.posY = posY;
     }
+
 }
