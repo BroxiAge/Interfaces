@@ -1,12 +1,13 @@
 class Figura {
     
-    constructor (posX, posY, width, height, fill, context){
+    constructor (posX, posY, fill, context){
         this.posX = posX;
         this.posY = posY;
-        this.width = width;
-        this.height = height;
+        //this.width = width;
+        //this.height = height;
         this.fill = fill;
-        this. context = context;
+        this.context = context;
+        //console.log(this.posX)
     }
 
     draw(){
@@ -16,6 +17,13 @@ class Figura {
     moveTo (posX, posY){
         this.posX = posX;
         this.posY = posY;
+    }
+
+    isClicked(x, y) {
+        console.log(this.posX)
+    }
+    isSelected(bool) {
+        this.context.stroke();
     }
 
 }

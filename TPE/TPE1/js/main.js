@@ -5,30 +5,25 @@ let canvasHeight = canvas.height;
 let colour = "black"
 let shapes = [];
 let objetoActual = null;
-
-
+let mosueDown = false;
+let mouseUp = false;
+ 
 const CANT_FIG = 30;
 
-function dibujar() {
-    
-    for (let i = 0; i < CANT_FIG; i++) {
-        addFigura((i < (CANT_FIG / 2)));
-    }
-
-    for (let x = 0; x < CANT_FIG; x++) {
-        shapes[x].draw();
-    }
-
-    for (let z = 0; z < CANT_FIG; z++) {
-        shapes[z].draw();
-    }
+function crearFiguras(){ 
+  addFigura((shapes.length < (CANT_FIG / 2)));
+  shapes[shapes.length-1].draw();
+  if(shapes.length < CANT_FIG){
+    crearFiguras();
+  }
 }
 
 function actualizar() {
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, 900, 600);
-
-    dibujar();
+    for (let i = 0; i < shapes.length; i++) {
+      shapes[i].draw();
+    }
   }
 
 function addFigura(estilo) {
@@ -58,22 +53,28 @@ function getRandomRGBA () {
 }
 
 canvas.onmousedown = function(event) {
-    let obj;
-    for (var i = 0; i < shapes.length; i++) {
-        obj = shapes[i];
-      if (obj.posX < event.clientX
-        && (obj.width + obj.posX > event.clientX)
-        
-      ) {
-        objetoActual = obj;
-        break;
+    for (let i = 0; i < shapes.length; i++) {
+      if (shapes[i].isClicked(event.clientX, event.clientY)){
+        mosueDown = true;
+        mouseUp = false;
+        objetoActual = shapes[i];
+      objetoActual.isSelected(true);
+      } else {
+        shapes[i].isSelected(false);
       }
     }
   }
 
+canvas.onmouseup = function (event) {
+  objetoActual.isSelected(false);
+  objetoActual = null;
+  mosueDown = false;
+  mouseUp = true;
+}
+
   canvas.onmousemove = function(event) {
     
-    if (objetoActual != null) {
+    if (objetoActual != null && mosueDown) {
     const x = event.clientX;
     const y = event.clientY;
 
