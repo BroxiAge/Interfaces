@@ -3,11 +3,8 @@ class Figura {
     constructor (posX, posY, fill, context){
         this.posX = posX;
         this.posY = posY;
-        //this.width = width;
-        //this.height = height;
         this.fill = fill;
         this.context = context;
-        //console.log(this.posX)
     }
 
     draw(){

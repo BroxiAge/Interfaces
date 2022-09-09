@@ -8,14 +8,12 @@ class Ovalo extends Figura {
         ctx.fillStyle = this.fill;
         ctx.beginPath();
         ctx.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2 );
-        //ctx.arc(75, 75, 50, 0, 2 * Math.PI);
         ctx.fill();
-        // ctx.stroke();
     }
     isClicked(x, y) {
         let _x = this.posX - x;
         let _y = this.posY - y;
-        console.log(Math.sqrt(_x * _x + _y * _y) < this.radius)
+        // console.log(Math.sqrt(_x * _x + _y * _y) < this.radius)
         return Math.sqrt(_x * _x + _y * _y) < this.radius;
     }
     isSelected(bool){

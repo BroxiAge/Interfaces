@@ -14,7 +14,7 @@ class Rect extends Figura {
     }
 
     isClicked (x,y) {
-        console.log(!(x < this.posX || x > this.posX + this.width || y < this.posY || y > this.posY + this.height))
+        // console.log(!(x < this.posX || x > this.posX + this.width || y < this.posY || y > this.posY + this.height))
        return !(x < this.posX || x > this.posX + this.width || y < this.posY || y > this.posY + this.height);
     }
 
