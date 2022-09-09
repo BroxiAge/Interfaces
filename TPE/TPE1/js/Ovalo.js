@@ -22,6 +22,6 @@ class Ovalo extends Figura {
         } else {
             ctx.strokeStyle = "black";
         }
-        ctx.stroke();
+        // ctx.stroke();
     }
 }

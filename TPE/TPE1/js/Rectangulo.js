@@ -24,7 +24,7 @@ class Rect extends Figura {
         } else {
             ctx.strokeStyle = "black";
         }
-        ctx.stroke();
-        this.context.stroke();
+        //ctx.stroke();
+        //this.context.stroke();
     }
 }
