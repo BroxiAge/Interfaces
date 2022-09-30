@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    
     <title>TPE 2</title>
 </head>
 <body>
     <canvas id="canvas" width="500" height="500"></canvas>
     <input type="color" id="color" oninput="defColor(this.value);">
     <input type="range" id="grosor" oninput="defGrosor(this.value);" min="1" max="20" value="1">
+    <input type="file" id="inp">
     <button onclick="borrar()">borrar</button>
     <script src="js/Main.js"></script>
+    <script src="js/Image.js"></script>
 </body>
 </html>
 <!-- Fuente Color/Trazo/Grosor: https://www.youtube.com/watch?v=wQsWdizztIw -->
