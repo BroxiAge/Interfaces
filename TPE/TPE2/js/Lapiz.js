@@ -1,9 +1,8 @@
-class Lapiz {
+class Lapiz extends Herramienta {
 
     constructor (ctx, posX, posY) {
-        this.posX = posX;
-        this.posY = posY;
-        this.ctx = ctx;
+        super(ctx, posX, posY)
+
         this.puedeDibujar = false;
         this.ctx.lineCap = "round";
         this.estaSeleccionado = false;
@@ -36,11 +35,6 @@ class Lapiz {
     }
 
     dibujar(x, y) {
-        this.ctx.beginPath();
-        ; //add setter
-        this.ctx.moveTo(this.posX, this.posY);
-        this.ctx.lineTo(x, y);
-        this.ctx.stroke();
-        this.ctx.closePath();
+      super.dibujar(x, y);
     }
 }
