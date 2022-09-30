@@ -7,6 +7,7 @@ class Lapiz {
         this.puedeDibujar = false;
         this.ctx.lineCap = "round";
         this.estaSeleccionado = false;
+        this.color = "black";
     }
     
     setEstaSeleccionado(seleccionado) {
@@ -30,9 +31,13 @@ class Lapiz {
         this.ctx.lineWidth = ancho;
     }
 
+    setColor(color) {
+        this.ctx.strokeStyle = color;
+    }
+
     dibujar(x, y) {
         this.ctx.beginPath();
-        this.ctx.strokeStyle = 'black'; //add setter
+        ; //add setter
         this.ctx.moveTo(this.posX, this.posY);
         this.ctx.lineTo(x, y);
         this.ctx.stroke();

@@ -20,6 +20,11 @@
         lapiz.setGrosor(e.target.value);
     });
 
+    document.getElementById("color").addEventListener('input', (e) => {
+        console.log(e.target.value); 
+        lapiz.setColor(e.target.value);
+    });
+
     canvas.addEventListener('mousedown', function(e){
         // console.log('mdown')
         
