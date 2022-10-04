@@ -5,21 +5,17 @@ class Goma extends Herramienta {
 
         this.puedeDibujar = false;
         this.ctx.lineCap = "round";
-        this.estaSeleccionado = false;
-        this.color = "#FFFFFF";
+        super.setColor("white");
+        super.setGrosor(30)
     }
     
-    setEstaSeleccionado(seleccionado) {
-        super.setEstaSeleccionado(seleccionado);
-        console.log("Goma selected");
-    }
-
     estaDibujando() {
         return this.puedeDibujar;
     }
 
     setEstado (estado) {
         this.puedeDibujar = estado; 
+        console.log("Goma selected");
     }
     
     setPos(x, y) {
@@ -28,10 +24,6 @@ class Goma extends Herramienta {
 
     setGrosor(ancho) {
         super.setGrosor(ancho);
-    }
-
-    setColor(color) {
-        super.setColor("#FFFFFF");
     }
 
     dibujar(x, y) {

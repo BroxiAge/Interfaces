@@ -2,16 +2,7 @@ class Lapiz extends Herramienta {
 
     constructor (ctx, posX, posY) {
         super(ctx, posX, posY)
-
-        this.puedeDibujar = false;
-        this.ctx.lineCap = "round";
-        this.estaSeleccionado = false;
-        this.color = "black";
-    }
-    
-    setEstaSeleccionado(seleccionado) {
-        super.setEstaSeleccionado(seleccionado);
-        console.log("Lapiz selected");
+        super.setColor("black");
     }
 
     estaDibujando() {
@@ -19,7 +10,8 @@ class Lapiz extends Herramienta {
     }
 
     setEstado (estado) {
-        this.puedeDibujar = estado; 
+        super.setEstado(estado);
+        console.log("Lapiz selected"); 
     }
     
     setPos(x, y) {

@@ -2,34 +2,29 @@
     let ctx = canvas.getContext("2d");
     var rect = canvas.getBoundingClientRect(); 
 
-    let lapiz = new Lapiz(ctx, 0, 0);
-
     document.getElementById('lapiz').addEventListener('click', (e) =>{
-        lapiz.setEstaSeleccionado (true);
+        herramienta = new Lapiz(ctx,0,0);
     })
 
-    function defColor(c) { 
-        if(borrando){
-            grosor = 1;
-            borrando= false
-        }
-        color = c;
-    }
+    document.getElementById('goma').addEventListener('click', (e) =>{
+        herramienta = new Goma(ctx,0,0);
+    })
 
     document.getElementById("grosor").addEventListener('input', (e) => { 
-        lapiz.setGrosor(e.target.value);
+        herramienta.setGrosor(e.target.value);
     });
 
     document.getElementById("color").addEventListener('input', (e) => {
-        console.log(e.target.value); 
-        lapiz.setColor(e.target.value);
+        // console.log(e.target.value); 
+        herramienta.setColor(e.target.value);
+        console.log(e.target.value)
     });
 
     canvas.addEventListener('mousedown', function(e){
         x=e.clientX - rect.left;
         y=e.clientY - rect.top;
-        lapiz.setPos(x, y);
-        lapiz.setEstado(true);
+        herramienta.setPos(x, y);
+        herramienta.setEstado(true);
     });
 
     canvas.addEventListener('mousemove', function(e){
@@ -37,19 +32,12 @@
         let xFin = e.clientX - rect.left;
         let yFin = e.clientY - rect.top;
 
-        if (lapiz.estaDibujando()) {
-            lapiz.dibujar(xFin, yFin);
-            lapiz.setPos(xFin, yFin);
+        if (herramienta.estaDibujando()) {
+            herramienta.dibujar(xFin, yFin);
+            herramienta.setPos(xFin, yFin);
         }
     });
 
     canvas.addEventListener('mouseup', function(e){
-        lapiz.setEstado(false);
+        herramienta.setEstado(false);
     }); 
-
-   /*  function borrar() {
-        borrando = true;
-        grosor = 30;
-        color='white';
-    }
- */

@@ -5,8 +5,7 @@ class Herramienta {
         this.ctx = ctx;
         this.puedeDibujar = false;
         this.ctx.lineCap = "round";
-        this.estaSeleccionado = false;
-        this.color = "black";
+        this.color = "blue";
     }
 
     dibujar(x, y) {
@@ -24,10 +23,6 @@ class Herramienta {
     setPos(x, y) {
         this.posX = x;
         this.posY = y;
-    }
-
-    setEstaSeleccionado(seleccionado) {
-        this.estaSeleccionado = seleccionado;
     }
 
     estaDibujando() {
