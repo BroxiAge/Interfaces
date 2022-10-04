@@ -12,6 +12,10 @@
         herramienta = new Goma(ctx,0,0);
     })
 
+    document.getElementById('limpiar').addEventListener('click', (e) =>{
+        ctx.clearRect(rect.left, rect.top, rect.right, rect.bottom);
+    })
+
     document.getElementById("grosor").addEventListener('input', (e) => { 
         herramienta.setGrosor(e.target.value);
     });
@@ -40,4 +44,4 @@
 
     canvas.addEventListener('mouseup', function(e){
         herramienta.setEstado(false);
-    }); 
+    });
