@@ -13,7 +13,7 @@
     })
 
     document.getElementById('limpiar').addEventListener('click', (e) =>{
-        ctx.clearRect(rect.left, rect.top, rect.right, rect.bottom);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     })
 
     document.getElementById("grosor").addEventListener('input', (e) => { 
