@@ -26,8 +26,6 @@
     });
 
     canvas.addEventListener('mousedown', function(e){
-        // console.log('mdown')
-        
         x=e.clientX - rect.left;
         y=e.clientY - rect.top;
         lapiz.setPos(x, y);

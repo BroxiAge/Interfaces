@@ -10,7 +10,8 @@ class Lapiz extends Herramienta {
     }
     
     setEstaSeleccionado(seleccionado) {
-        this.estaSeleccionado = seleccionado;
+        super.setEstaSeleccionado(seleccionado);
+        console.log("Lapiz selected");
     }
 
     estaDibujando() {
@@ -22,16 +23,15 @@ class Lapiz extends Herramienta {
     }
     
     setPos(x, y) {
-        this.posX = x;
-        this.posY = y;
+        super.setPos(x,y);
     }
 
     setGrosor(ancho) {
-        this.ctx.lineWidth = ancho;
+        super.setGrosor(ancho);
     }
 
     setColor(color) {
-        this.ctx.strokeStyle = color;
+        super.setColor(color);
     }
 
     dibujar(x, y) {

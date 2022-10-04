@@ -37,4 +37,8 @@ class Herramienta {
     setEstado (estado) {
         this.puedeDibujar = estado; 
     }
+
+    setColor(color) {
+        this.ctx.strokeStyle = color;
+    }
 }
