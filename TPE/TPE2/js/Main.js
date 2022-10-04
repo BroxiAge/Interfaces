@@ -2,7 +2,7 @@
     let ctx = canvas.getContext("2d");
     var rect = canvas.getBoundingClientRect(); 
 
-    herramienta = new Lapiz(ctx,0,0);
+    herramienta = new Lapiz(ctx,0,0); //Creo la primera instancia como lapiz para que inicie dibujando.
 
     document.getElementById('lapiz').addEventListener('click', (e) =>{
         herramienta = new Lapiz(ctx,0,0);
@@ -25,10 +25,10 @@
     });
 
     canvas.addEventListener('mousedown', function(e){
-        x=e.clientX - rect.left;
-        y=e.clientY - rect.top;
-        herramienta.setPos(x, y);
-        herramienta.setEstado(true);
+        const x=e.clientX - rect.left;
+        const y=e.clientY - rect.top;
+        
+        herramienta.iniciarDibujo(x, y);
     });
 
     canvas.addEventListener('mousemove', function(e){
@@ -38,10 +38,10 @@
 
         if (herramienta.estaDibujando()) {
             herramienta.dibujar(xFin, yFin);
-            herramienta.setPos(xFin, yFin);
         }
     });
 
     canvas.addEventListener('mouseup', function(e){
-        herramienta.setEstado(false);
+        
+        herramienta.finalizarDibujo();
     });

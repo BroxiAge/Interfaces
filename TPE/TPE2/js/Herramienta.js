@@ -6,6 +6,7 @@ class Herramienta {
         this.puedeDibujar = false;
         this.ctx.lineCap = "round";
         this.color = "blue";
+        this.setGrosor(5);
     }
 
     dibujar(x, y) {
@@ -14,6 +15,8 @@ class Herramienta {
         this.ctx.lineTo(x, y);
         this.ctx.stroke();
         this.ctx.closePath();
+
+        this.setPos(x, y); //avanzo
     }
 
     setGrosor(ancho) {
@@ -35,5 +38,14 @@ class Herramienta {
 
     setColor(color) {
         this.ctx.strokeStyle = color;
+    }
+
+    iniciarDibujo(x,y){
+        this.setPos(x,y);
+        this.puedeDibujar = true;
+    }
+
+    finalizarDibujo(){
+        this.puedeDibujar = false;
     }
 }

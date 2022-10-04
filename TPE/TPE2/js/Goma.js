@@ -7,6 +7,6 @@ class Goma extends Herramienta {
     }
 
     setColor(color){
-        alert("no papi");
+        alert("Estan cerradas las importaciones de goma: Solo hay blanca.");
     }
 }
