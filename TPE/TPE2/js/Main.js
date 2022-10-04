@@ -2,6 +2,8 @@
     let ctx = canvas.getContext("2d");
     var rect = canvas.getBoundingClientRect(); 
 
+    herramienta = new Lapiz(ctx,0,0);
+
     document.getElementById('lapiz').addEventListener('click', (e) =>{
         herramienta = new Lapiz(ctx,0,0);
     })
@@ -15,9 +17,7 @@
     });
 
     document.getElementById("color").addEventListener('input', (e) => {
-        // console.log(e.target.value); 
         herramienta.setColor(e.target.value);
-        console.log(e.target.value)
     });
 
     canvas.addEventListener('mousedown', function(e){
