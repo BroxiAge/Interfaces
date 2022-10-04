@@ -2,6 +2,8 @@
     let ctx = canvas.getContext("2d");
     var rect = canvas.getBoundingClientRect(); 
 
+    /* Herramientas */
+
     herramienta = new Lapiz(ctx,0,0); //Creo la primera instancia como lapiz para que inicie dibujando.
 
     document.getElementById('lapiz').addEventListener('click', (e) =>{
@@ -24,6 +26,8 @@
         herramienta.setColor(e.target.value);
     });
 
+    /* Movimientos del mouse */
+
     canvas.addEventListener('mousedown', function(e){
         const x=e.clientX - rect.left;
         const y=e.clientY - rect.top;
@@ -45,3 +49,13 @@
         
         herramienta.finalizarDibujo();
     });
+
+    /* eventos de imagen */
+
+    let imagen = new Imagen(ctx);
+
+    document.getElementById('inp').addEventListener('change', (e) =>{
+        imagen.cargarImagen(e.target); //hace referencia al elemento en html que disparo el evento
+    })
+
+ 
