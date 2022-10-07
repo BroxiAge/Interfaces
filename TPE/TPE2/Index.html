@@ -5,29 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>TPE 2</title>
 </head>
 <body>
-    <canvas id="canvas" width="500" height="500"></canvas>
+    
     <div>
-        <input type="color" id="color">
-        <label for="grosor"></label>
-        <input type="range" id="grosor" value="5" min="1" max="30" step="1">
+        <canvas id="canvas" width="500" height="500"></canvas>
         <div>
-            <h1>Herramientas</h1>
-            <button id="lapiz">Lapiz</button>
-            <button id="goma">Goma</button>
-            <button id="limpiar">Limpiar</button>
-        </div>
-        <input type="file" id="inp">
-        <div>
-            <h1>Filtros</h1>
-            <button id="blur">Blur</button>
-            <!-- <button id="negativo">negativo</button>
-            <label for="brillo">brillo</label>
-            <input type="range" id="brillo" value="0" min="-30" max="30" step="1"/>
-            <button id="binarización">binarización</button> 
-            <button id="sepia">sepia</button> -->
+            <input type="color" id="color">
+            <label for="grosor"></label>
+            <input type="range" id="grosor" value="5" min="1" max="30" step="1">
+            <div>
+                <h1>Herramientas</h1>
+                <button id="lapiz">Lapiz</button>
+                <button id="goma">Goma</button>
+                <button id="limpiar">Limpiar</button>
+            </div>
+            <input type="file" id="inp">
+            <div>
+                <div>
+                    <h2>Filtros básicos</h2>
+                    <button id="sin-filtro">Sin filtro</button>
+                    <button id="negativo">Negativo</button>
+                    <label for="brillo">brillo</label>
+                    <input type="range" id="brillo" value="5" min="0" max="10" step="1">
+                    <button id="brillo">Brillo</button>
+                    <button id="binarización">Binarización</button>
+                    <button id="sepia">Sepia</button>
+                </div>
+                <div>
+                    <h2>Filtros avanzados</h2>
+                    <button id="blur">Blur</button>
+                    <button id="saturacion">Saturado</button>
+                </div>
+                <!-- 
+                <label for="brillo">brillo</label>
+                <input type="range" id="brillo" value="0" min="-30" max="30" step="1"/>
+                <button id="binarización">binarización</button> 
+                <button id="sepia">sepia</button> -->
+            </div>
         </div>
     </div>
     <!------ scripts ------>
@@ -38,5 +55,6 @@
     <script src="js/Main.js"></script>
 </body>
 </html>
+
 <!-- Fuente Color/Trazo/Grosor: https://www.youtube.com/watch?v=wQsWdizztIw -->
- 
+<!-- Fuente Filtros: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter-->

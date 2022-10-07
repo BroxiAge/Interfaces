@@ -8,7 +8,6 @@ class Imagen {
   }
 
   draw() {
-    // ctx.filter = "blur(5px)";
     this.ctx.drawImage(this.img, 0,0, this.img.width, this.img.height);
   }
 
@@ -17,16 +16,46 @@ class Imagen {
     this.img.onload = ()=>{this.draw()}
   }
 
-  adaptarEscala(){
-    canvas.width = this.width;
-    canvas.height = this.height;
-  }
-
   setBlur(){
-    console.log("setblur")
     this.ctx.filter = "blur(5px)";
+    this.draw();
+    this.ctx.filter = "none";
   }
 
+  sinFiltro(){
+    this.ctx.filter = "none";
+    this.draw();
+  }
 
+  setSepia(){
+    this.ctx.filter = "sepia(8)";
+    this.draw();
+    this.ctx.filter = "none";
+  }
+
+  setInvert(){
+    this.ctx.filter = "invert(8)";
+    this.draw();
+    this.ctx.filter = "none";
+  }
+
+  setBrightness(value) {
+    this.ctx.filter = "brightness(" + value + ")" ;
+    this.draw();
+    this.ctx.filter = "none";
+  }
+
+  setGrayscale() {
+    this.ctx.filter = "grayscale(50)"
+    this.draw();
+    this.ctx.filter = "none";
+  }
+
+  setSaturate() {
+    this.ctx.filter = "saturate(45)"
+    this.draw();
+    this.ctx.filter = "none";
+  }
+  
 }
 

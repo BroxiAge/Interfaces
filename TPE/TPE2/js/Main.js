@@ -46,7 +46,6 @@
     });
 
     canvas.addEventListener('mouseup', function(e){
-        
         herramienta.finalizarDibujo();
     });
 
@@ -57,8 +56,34 @@
     document.getElementById('inp').addEventListener('change', (e) =>{
         imagen.cargarImagen(e.target); //hace referencia al elemento en html que disparo el evento
     })
+    
+    document.getElementById("sin-filtro").addEventListener('click', (e) => {
+        imagen.sinFiltro();
+    });
+
+    document.getElementById("sepia").addEventListener('click', (e) => {
+        imagen.setSepia();
+    });
+
+    document.getElementById("negativo").addEventListener('click', (e) => {
+        imagen.setInvert();
+    });
+
+    document.getElementById("brillo").addEventListener('click', (e) => {
+        imagen.setBrightness(e.target.value);
+    });
+
+    document.getElementById("binarización").addEventListener('click', (e) => {
+        imagen.setGrayscale();
+    });
 
     document.getElementById("blur").addEventListener('click', (e) => {
         imagen.setBlur();
     });
+
+    document.getElementById("saturacion").addEventListener('click', (e) => {
+        imagen.setSaturate();
+    });
+    
  
+    
