@@ -1,3 +1,13 @@
 #canvas{
     border:1px solid;
+    margin-top: 50px;
+    background-color: white !important;
+}
+
+.container{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfISpot32GiZ9xec9TukEOvNtRZaUNOX8rqw&usqp=CAU);
+}
+
+h3{
+    color: grey;
 }
