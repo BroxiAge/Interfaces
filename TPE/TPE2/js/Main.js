@@ -50,12 +50,15 @@
         herramienta.finalizarDibujo();
     });
 
-    /* eventos de imagen */
+    /* Eventos de imagen */
 
-    let imagen = new Imagen(ctx);
+    let imagen = new Imagen(ctx, canvas.width, canvas.height);
 
     document.getElementById('inp').addEventListener('change', (e) =>{
         imagen.cargarImagen(e.target); //hace referencia al elemento en html que disparo el evento
     })
 
+    document.getElementById("blur").addEventListener('click', (e) => {
+        imagen.setBlur();
+    });
  
