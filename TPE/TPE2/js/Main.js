@@ -57,32 +57,36 @@
         imagen.cargarImagen(e.target); //hace referencia al elemento en html que disparo el evento
     })
     
+    /* filtros basicos*/
+
     document.getElementById("sin-filtro").addEventListener('click', (e) => {
         imagen.sinFiltro();
+    });
+
+    document.getElementById("brillo").addEventListener('click', (e) => {
+        imagen.setBrillo(e.target.value);
+    });
+
+    document.getElementById("negativo").addEventListener('click', (e) => {
+        imagen.setNegativo();
+    });
+
+    document.getElementById("binarización").addEventListener('click', (e) => {
+        imagen.setBinarizacion();
     });
 
     document.getElementById("sepia").addEventListener('click', (e) => {
         imagen.setSepia();
     });
 
-    document.getElementById("negativo").addEventListener('click', (e) => {
-        imagen.setInvert();
-    });
-
-    document.getElementById("brillo").addEventListener('click', (e) => {
-        imagen.setBrightness(e.target.value);
-    });
-
-    document.getElementById("binarización").addEventListener('click', (e) => {
-        imagen.setGrayscale();
-    });
+    /* filtros avanzados */
 
     document.getElementById("blur").addEventListener('click', (e) => {
         imagen.setBlur();
     });
 
     document.getElementById("saturacion").addEventListener('click', (e) => {
-        imagen.setSaturate();
+        imagen.setSaturacion();
     });
     
  
