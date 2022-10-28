@@ -11,15 +11,9 @@ let enemies = Array();
 /* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 16);
 
-
-
 /* cada 1 segundo genera un enemigo */
 const GAME_INTERVAL = setInterval(generarEnemigo, 1000);
 
-
-/**
- * Chequear estado del runner y de los enemigos
- */
 function gameLoop() {
     
     for (let i = 0; i < enemies.length; i++) {
@@ -41,13 +35,14 @@ function gameLoop() {
     }
 }
 
-
 function generarEnemigo() {
     let enemigo = new Enemigo();
     enemies.push(enemigo);
 }
 
-function collition(r, e) {
-    console.log(r);
-    console.log(e);
-} 
+function collition(rect1, rect2) {
+    const isInHoriztonalBounds = rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x;
+    const isInVerticalBounds = rect1.y < rect2.y + rect2.height && rect1.y + rect1.height > rect2.y;
+    const isOverlapping = isInHoriztonalBounds && isInVerticalBounds;
+    return isOverlapping;
+}
