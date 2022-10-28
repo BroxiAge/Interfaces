@@ -2,47 +2,45 @@ class Runner extends Personaje {
 
     constructor() {
         super();
-        this.personaje = document.getElementById("personaje");
+        this.element = document.getElementById("personaje");
     }
 
     status() {
-        this.personaje.getBoundingClientRect();
+        return super.status();
     }
 
     correr() {
         this.clean();
-        this.personaje.classList.add("correr"); 
+        this.element.classList.add("correr"); 
     }
 
     saltar() {
-        if(this.personaje.classList.contains("correr")) {       
+        if(this.element.classList.contains("correr")) {       
             this.clean(); 
 
-            this.personaje.classList.add("saltar");
+            this.element.classList.add("saltar");
 
 
 
-            this.personaje.addEventListener("animationend", () => {
+            this.element.addEventListener("animationend", () => {
                 this.caer();
             });
         }
     }
+
     caer() {
         this.clean();
-        this.personaje.classList.add("caer");
+        this.element.classList.add("caer");
 
-        this.personaje.addEventListener("animationend", () => {
+        this.element.addEventListener("animationend", () => {
             this.correr();
         }); 
     }
 
-    /**
-     * 
-     */
     clean() {
-        this.personaje.classList.remove("correr"); 
-        this.personaje.classList.remove("saltar");
-        this.personaje.classList.remove("caer"); 
-        this.personaje.removeEventListener("animationend", () => {}); 
+        this.element.classList.remove("correr"); 
+        this.element.classList.remove("saltar");
+        this.element.classList.remove("caer"); 
+        this.element.removeEventListener("animationend", () => {}); 
     }
 }

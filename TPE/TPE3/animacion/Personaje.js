@@ -1,11 +1,10 @@
 class Personaje {
 
     constructor() {
-
+        this.element;
     }
 
     status() {
-        return ;
+        return this.element.getBoundingClientRect();
     }
-
 }
