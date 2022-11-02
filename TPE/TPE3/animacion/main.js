@@ -12,7 +12,7 @@ let enemies = Array();
 const GAME_LOOP = setInterval(gameLoop, 16);
 
 /* cada 1 segundo genera un enemigo */
-const GAME_INTERVAL = setInterval(generarEnemigo, 1000);
+const GAME_INTERVAL = setInterval(generarEnemigo, 3000);
 
 function gameLoop() {
     
@@ -32,6 +32,7 @@ function gameLoop() {
     if (gameOver) {
         clearInterval(GAME_LOOP);
         clearInterval(GAME_INTERVAL);
+        runner.morir();
     }
 }
 
