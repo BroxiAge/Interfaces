@@ -46,10 +46,7 @@ class Runner extends Personaje {
     }
 
     morir() {
-        this.element.classList.remove("correr"); 
-        this.element.classList.remove("saltar");
-        this.element.classList.remove("caer"); 
-        this.element.removeEventListener("animationend", () => {}); 
+        this.clean();
         this.element.classList.add("muere");
     }
 }

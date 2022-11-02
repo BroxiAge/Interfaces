@@ -114,8 +114,7 @@ body {
     height: 190px;
     width: 261px;
     background: url("images/muere.png");
-    animation: muere 1.8s steps(10) infinite;
-    transform: translate(150px, 180px);
+    animation: muere 1.8s steps(10) 1;
 }
 
 @keyframes muere{

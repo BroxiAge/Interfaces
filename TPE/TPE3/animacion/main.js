@@ -7,6 +7,9 @@ document.addEventListener('keydown', () => {
 });
 
 let enemies = Array();
+let cielo = document.getElementById("cielo");
+let piso = document.getElementById("piso");
+
 
 /* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 16);
@@ -33,6 +36,8 @@ function gameLoop() {
         clearInterval(GAME_LOOP);
         clearInterval(GAME_INTERVAL);
         runner.morir();
+        cielo.style.webkitAnimationPlayState = "paused";
+        piso.style.webkitAnimationPlayState = "paused";
     }
 }
 
