@@ -3,6 +3,7 @@ class Runner extends Personaje {
     constructor() {
         super();
         this.element = document.getElementById("personaje");
+        this.correr();
     }
 
     status() {
