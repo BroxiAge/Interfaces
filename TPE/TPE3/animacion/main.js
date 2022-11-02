@@ -6,22 +6,22 @@ document.addEventListener('keydown', () => {
     runner.saltar();
 });
 
-let obstaculos = Array();
+let enemies = Array();
 
 /* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 16);
-
-let GAME_INTERVAL = setInterval(generarObstaculo, 3000);
+let intervaloGeneracionEnemigos = 2000; 
+let GAME_INTERVAL = setInterval(generarEnemigo, 3000);
 
 function gameLoop() {
 
-    for (let i = 0; i < obstaculos.length; i++) {
-        if (obstaculos[i].isActive() === false) {
-            obstaculos.splice(i,0);
+    for (let i = 0; i < enemies.length; i++) {
+        if (enemies[i].isActive() === false) {
+            enemies.splice(i,0);
        } else {
 
             let r = runner.status();
-            let e = obstaculos[i].status();
+            let e = enemies[i].status();
 
 
             if(collition(r, e)) gameOver = true;
@@ -36,11 +36,11 @@ function gameLoop() {
     }
 }
 
-function generarObstaculo() {
+function generarEnemigo() {
 
     setTimeout(() => {
-        let obstaculo = new Obstaculo();
-        obstaculos.push(obstaculo);
+        let enemigo = new Enemigo();
+        enemies.push(enemigo);
       }, (Math.floor(Math.random()*3)+1)*1000).toString //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
     }
 
