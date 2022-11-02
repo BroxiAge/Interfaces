@@ -114,15 +114,15 @@ body {
     height: 190px;
     width: 261px;
     background: url("images/muere.png");
-    animation: muere 1.8s steps(10) 1;
+    animation: muere steps(10) 1;
+    animation-duration: 1.8s;
 }
 
 @keyframes muere{
+    
     from {background-position: 0 0;} to
     {background-position: -2617px 0;}
 }
-
-
 
 .enemigo {
     border: 1px solid blue;
@@ -135,8 +135,6 @@ body {
     animation: enemigo 6s forwards linear;
 }
 
-
-
 @keyframes enemigo {
     from {
       left: 100%;
@@ -146,5 +144,13 @@ body {
     }
 }
 
-
+#gameOver{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.ocultar{
+    visibility: hidden;
+}
 

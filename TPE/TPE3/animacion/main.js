@@ -7,9 +7,6 @@ document.addEventListener('keydown', () => {
 });
 
 let enemies = Array();
-let cielo = document.getElementById("cielo");
-let piso = document.getElementById("piso");
-
 
 /* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 16);
@@ -36,8 +33,7 @@ function gameLoop() {
         clearInterval(GAME_LOOP);
         clearInterval(GAME_INTERVAL);
         runner.morir();
-        cielo.style.webkitAnimationPlayState = "paused";
-        piso.style.webkitAnimationPlayState = "paused";
+        endGame();
     }
 }
 
@@ -52,3 +48,16 @@ function collition(rect1, rect2) {
     const isOverlapping = isInHoriztonalBounds && isInVerticalBounds;
     return isOverlapping;
 }
+
+function endGame(){
+    document.getElementById("cielo").style.webkitAnimationPlayState = "paused";
+    document.getElementById("piso").style.webkitAnimationPlayState = "paused";
+    setTimeout(() => {
+        document.getElementById("gameOver").classList.remove("ocultar");
+        document.getElementById("personaje").classList.remove("zombie");
+      }, "1800")
+}
+
+/* preguntas:
+- ¿Como hago para que el al morir el personaje quede en el ultimo frame, no el primero?
+*/
