@@ -124,7 +124,7 @@ body {
     {background-position: -2617px 0;}
 }
 
-.enemigo {
+.obstaculo {
     border: 1px solid blue;
     position: absolute;
     border-top-left-radius: 30%;
@@ -132,10 +132,10 @@ body {
     height: 80px;
     width: 60px;
     background: url("images/plants-vs-zombie/cactus.png");
-    animation: enemigo 6s forwards linear;
+    animation: obstaculo 6s forwards linear;
 }
 
-@keyframes enemigo {
+@keyframes obstaculo {
     from {
       left: 100%;
     }

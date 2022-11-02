@@ -1,9 +1,9 @@
-class Enemigo extends Personaje {
+class Obstaculo extends Personaje {
 
     constructor() {
         super();
         this.element = document.createElement("div");
-        this.element.classList.add("enemigo");
+        this.element.classList.add("obstaculo");
         this.active = true;
         document.getElementById("contenedor").appendChild(this.element);
         this.element.addEventListener("animationend", () => this.pop());
