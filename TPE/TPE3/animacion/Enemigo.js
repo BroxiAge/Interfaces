@@ -1,4 +1,4 @@
-class Enemigo extends Personaje {
+class Enemigo extends Obstaculo {
 
     constructor() {
         super();
@@ -7,17 +7,5 @@ class Enemigo extends Personaje {
         this.active = true;
         document.getElementById("contenedor").appendChild(this.element);
         this.element.addEventListener("animationend", () => this.pop());
-    }
-
-    status() {
-          return super.status();
-    }
-
-    pop() {
-        document.getElementById("contenedor").removeChild(this.element);
-        this.active = false;
-    }
-    isActive() {
-        return this.active;
     }
 }

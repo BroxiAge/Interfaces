@@ -135,6 +135,17 @@ body {
     animation: enemigo 6s forwards linear;
 }
 
+.bonus {
+    position: absolute;
+    border-top-left-radius: 30%;
+    bottom: 60%;
+    height: 37px;
+    width: 48px;
+    z-index: 90;
+    background: url("images/plants-vs-zombie/vida.png");
+    animation: enemigo 6s forwards linear;
+}
+
 @keyframes enemigo {
     from {
       left: 100%;
