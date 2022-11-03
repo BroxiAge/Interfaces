@@ -4,7 +4,7 @@
 
 let gameOver = false;
 let runner = new Runner();
-
+let vidas = 3
 document.addEventListener('keydown', () => {
     runner.saltar();
 });
@@ -12,7 +12,7 @@ document.addEventListener('keydown', () => {
 let enemies = Array();
 
 /* cada 16 milisegundos verifica estado del juego */
-const GAME_LOOP = setInterval(gameLoop, 16);
+const GAME_LOOP = setInterval(gameLoop, 1000);
 
 let GAME_INTERVAL = setInterval(generarObstaculo, 3000);
 
@@ -26,9 +26,24 @@ function gameLoop() {
             let r = runner.status();
             let e = enemies[i].status();
 
-            if (collition(r, e)) gameOver = true;
+            if (collition(r, e)) {
+                if (enemies[i].esEnemigo() && (vidas > 0 && vidas < 4)){
+                    runner.removeVida(vidas);
+                    vidas--;
+                    console.log(vidas)
+                }
+                if (!enemies[i].esEnemigo() && (vidas < 3)){
+                    vidas++;
+                    runner.addVida(vidas);
+                    console.log(vidas)
+                }  
+            }
+            if (collition(r, e) && vidas === 0) {
+                gameOver = true;
+            } 
         }
     }
+    
 
     if (gameOver) {
         clearInterval(GAME_LOOP);

@@ -1,8 +1,8 @@
 class Runner extends Personaje {
-
     constructor() {
         super();
         this.element = document.getElementById("personaje");
+
         this.correr();
     }
 
@@ -12,12 +12,12 @@ class Runner extends Personaje {
 
     correr() {
         this.clean();
-        this.element.classList.add("correr"); 
+        this.element.classList.add("correr");
     }
 
     saltar() {
-        if(this.element.classList.contains("correr")) {       
-            this.clean(); 
+        if (this.element.classList.contains("correr")) {
+            this.clean();
 
             this.element.classList.add("saltar");
 
@@ -35,18 +35,26 @@ class Runner extends Personaje {
 
         this.element.addEventListener("animationend", () => {
             this.correr();
-        }); 
+        });
     }
 
     clean() {
-        this.element.classList.remove("correr"); 
+        this.element.classList.remove("correr");
         this.element.classList.remove("saltar");
-        this.element.classList.remove("caer"); 
-        this.element.removeEventListener("animationend", () => {}); 
+        this.element.classList.remove("caer");
+        this.element.removeEventListener("animationend", () => { });
     }
 
     morir() {
         this.clean();
         this.element.classList.add("muere");
+    }
+
+    removeVida(nroVida) {
+        document.getElementById("vida" + nroVida).style.visibility = "hidden";
+    }
+
+    addVida(nroVida) {
+        document.getElementById("vida" + nroVida).style.visibility = "visible";
     }
 }

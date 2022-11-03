@@ -11,4 +11,13 @@ class Obstaculo extends Personaje {
     isActive() {
         return this.active;
     }
+
+    esEnemigo() {
+        if (this.element.classList.contains('enemigo')) {
+            return "true"
+        }
+        else {
+            return false;
+        }
+    }
 }
