@@ -165,3 +165,10 @@ body {
     visibility: hidden;
 }
 
+#vida1, #vida2, #vida3{
+    background-image: url("images/plants-vs-zombie/vida.png");
+    height: 37px;
+    width: 48px;
+    z-index: 90;
+}
+
