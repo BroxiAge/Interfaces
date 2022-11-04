@@ -56,6 +56,7 @@ class Runner extends Personaje {
     }
 
     removeVida() {
+        console.log("entre removeVida")
         if (this.vidas <= 3) {
             document.getElementById("vida" + this.vidas).style.visibility = "hidden";
             this.vidas--;
@@ -63,7 +64,6 @@ class Runner extends Personaje {
     }
 
     addVida() {
-        console.log("entre")
         if (this.vidas > 0 && this.vidas < 4) {
             this.vidas++;
             document.getElementById("vida" + this.vidas).style.visibility = "visible";
@@ -91,5 +91,13 @@ class Runner extends Personaje {
             obstaculo.pop();
             ganarPuntos();
         }
+    }
+
+    collition(obstaculo) {
+        let runner = this.status();
+        const isInHoriztonalBounds = runner.x < obstaculo.x + obstaculo.width && runner.x + runner.width > obstaculo.x;
+        const isInVerticalBounds = runner.y < obstaculo.y + obstaculo.height && runner.y + runner.height > obstaculo.y;
+        const isOverlapping = isInHoriztonalBounds && isInVerticalBounds;
+        return isOverlapping;
     }
 }
