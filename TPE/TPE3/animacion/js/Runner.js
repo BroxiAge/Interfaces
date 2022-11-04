@@ -56,7 +56,6 @@ class Runner extends Personaje {
     }
 
     removeVida() {
-        console.log("entre removeVida")
         if (this.vidas <= 3) {
             document.getElementById("vida" + this.vidas).style.visibility = "hidden";
             this.vidas--;

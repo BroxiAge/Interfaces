@@ -13,7 +13,7 @@ document.addEventListener('keydown', () => {
     runner.saltar();
 });
 
-let enemies = Array();
+let obstaculos = Array();
 
 /* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 500);
@@ -22,12 +22,12 @@ const GAME_INTERVAL = setInterval(generarObstaculo, 3000);
 
 function gameLoop() {
     
-    for (let i = 0; i < enemies.length; i++) {
-        if (enemies[i].isActive() === false) {
-            enemies.splice(i, 0);
+    for (let i = 0; i < obstaculos.length; i++) {
+        if (obstaculos[i].isActive() === false) {
+            obstaculos.splice(i, 0);
         } else {
-            if (runner.collition(enemies[i].status())) {
-                runner.accion(enemies[i]);
+            if (runner.collition(obstaculos[i].status())) {
+                runner.accion(obstaculos[i]);
             }
             if (runner.sinVida()) {
                 gameOver = true;
@@ -46,17 +46,17 @@ function generarObstaculo() {
 
     setTimeout(() => {
         let enemigo = new Enemigo();
-        enemies.push(enemigo);
+        obstaculos.push(enemigo);
     }, (Math.floor(Math.random() * 3) + 1) * 1000).toString 
 
     setTimeout(() => {
         let bonus = new Bonus();
-        enemies.push(bonus);
+        obstaculos.push(bonus);
     }, (Math.floor(Math.random() * 6) + 1) * 12000).toString 
 
     setTimeout(() => {
         let moneda = new Moneda();
-        enemies.push(moneda);
+        obstaculos.push(moneda);
     }, (Math.floor(Math.random() * 6) + 1) * 1000).toString 
 }
 
