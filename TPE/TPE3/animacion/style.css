@@ -155,6 +155,17 @@ body {
     }
 }
 
+.monedation {
+    position: absolute;
+    border-top-left-radius: 30%;
+    bottom: 60%;
+    height: 37px;
+    width: 40px;
+    z-index: 90;
+    background: url("images/plants-vs-zombie/moneda1.png");
+    animation: flip 6s forwards linear,  enemigo 6s forwards linear;
+}
+
 @keyframes flip {
    0% {
       transform: perspective(400px) rotateY(0);
