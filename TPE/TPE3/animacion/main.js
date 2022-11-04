@@ -1,6 +1,6 @@
 "use strict"
 
-/* hp_BdaG5OV7swfoW4heVhvMuoQsMtpD5S4eMnsJ */
+/* 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 */
 
 let gameOver = false;
 let runner = new Runner();
