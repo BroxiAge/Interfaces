@@ -5,6 +5,11 @@
 let gameOver = false;
 let runner = new Runner();
 let vidas = 3
+
+// Seteo los puntos iniciales, la primera vez.
+let score = 100;
+document.getElementById('score').innerHTML = "Score: " + score;
+
 document.addEventListener('keydown', () => {
     runner.saltar();
 });
@@ -30,12 +35,11 @@ function gameLoop() {
                 if (enemies[i].esEnemigo() && (vidas > 0 && vidas < 4)){
                     runner.removeVida(vidas);
                     vidas--;
-                    console.log(vidas)
                 }
                 if (!enemies[i].esEnemigo() && (vidas < 3)){
+                    ganarPuntos();
                     vidas++;
                     runner.addVida(vidas);
-                    console.log(vidas)
                 }  
             }
             if (collition(r, e) && vidas === 0) {
@@ -90,6 +94,10 @@ function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+function ganarPuntos() {
+    score++;
+    document.getElementById('score').innerHTML = "Score: " + score;
+}
 /* preguntas:
 - ¿Como hago para que el al morir el personaje quede en el ultimo frame, no el primero?
 */

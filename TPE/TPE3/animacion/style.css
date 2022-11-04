@@ -172,3 +172,12 @@ body {
     z-index: 90;
 }
 
+#score
+{
+    font-size: 60px;
+    color: black;
+    position: absolute;
+    top: auto;
+    left: 700px;
+    z-index: 100;
+}
