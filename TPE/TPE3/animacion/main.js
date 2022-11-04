@@ -57,15 +57,10 @@ function generarObstaculo() {
 function endGame() {
     document.getElementById("cielo").style.webkitAnimationPlayState = "paused";
     document.getElementById("piso").style.webkitAnimationPlayState = "paused";
-    //  let contenedor = document.getElementById("contenedor");
-    // obstaculos.forEach(element => {
-    //     contenedor.removeChild(element.elemento());
-    // });
     setTimeout(() => {
         document.getElementById("gameOver").classList.remove("ocultar");
-        document.getElementById("personaje").classList.remove("zombie");
-    }, "1800")
-    
+      //   document.getElementById("personaje").classList.remove("zombie");
+    }, "2100")
 }
 
 function randomIntFromInterval(min, max) { 
