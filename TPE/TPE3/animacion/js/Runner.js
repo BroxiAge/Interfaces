@@ -4,6 +4,10 @@ class Runner extends Personaje {
         this.element = document.getElementById("personaje");
         this.vidas = 3;
         this.correr();
+        this.sonidoMoneda = new Audio("./sonidos/mario-bros-coin.mp3");
+        this.sonidoCorazon = new Audio("./sonidos/mario-bros-vida.mp3");
+        this.sonidoTropiezo = new Audio("./sonidos/pacman-dies.mp3");
+        this.sonidoGameOver = new Audio("./sonidos/sad-lose.mp3");
     }
 
     status() {
@@ -47,6 +51,7 @@ class Runner extends Personaje {
 
     morir() {
         this.clean();
+        this.sonidoGameOver.play();
         this.element.classList.add("muere");
     }
 
@@ -72,15 +77,17 @@ class Runner extends Personaje {
 
     accion(obstaculo) {
         if (obstaculo.quienSoy() === 'enemigo') {
+           //  this.sonidoTropiezo.play();
             obstaculo.pop();
-            this.element.classList.add("muere");
             runner.removeVida();
         }
         if (obstaculo.quienSoy() === 'bonus') {
+           //  this.sonidoCorazon.play();
             obstaculo.pop();
             runner.addVida();
         }
         if (obstaculo.quienSoy() === 'moneda') {
+            // this.sonidoMoneda.play();
             obstaculo.pop();
             ganarPuntos();
         }
