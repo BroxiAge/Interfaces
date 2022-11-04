@@ -12,12 +12,15 @@ class Obstaculo extends Personaje {
         return this.active;
     }
 
-    esEnemigo() {
+    quienSoy() {
         if (this.element.classList.contains('enemigo')) {
-            return "true"
+            return "enemigo"
         }
-        else {
-            return false;
+        if (this.element.classList.contains('bonus')) {
+            return "bonus"
+        }
+        if (this.element.classList.contains('moneda')) {
+            return "moneda"
         }
     }
 }

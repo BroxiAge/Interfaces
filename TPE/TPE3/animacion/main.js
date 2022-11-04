@@ -17,7 +17,7 @@ document.addEventListener('keydown', () => {
 let enemies = Array();
 
 /* cada 16 milisegundos verifica estado del juego */
-const GAME_LOOP = setInterval(gameLoop, 1000);
+const GAME_LOOP = setInterval(gameLoop, 750);
 
 let GAME_INTERVAL = setInterval(generarObstaculo, 3000);
 
@@ -32,15 +32,17 @@ function gameLoop() {
             let e = enemies[i].status();
 
             if (collition(r, e)) {
-                if (enemies[i].esEnemigo() && (vidas > 0 && vidas < 4)){
+                if (enemies[i].quienSoy() === 'enemigo' && (vidas > 0 && vidas < 4)){
                     runner.removeVida(vidas);
                     vidas--;
                 }
-                if (!enemies[i].esEnemigo() && (vidas < 3)){
-                    ganarPuntos();
+                if (enemies[i].quienSoy() === 'bonus' && (vidas < 3)){
                     vidas++;
                     runner.addVida(vidas);
-                }  
+                }
+                if (enemies[i].quienSoy() === 'moneda'){
+                    ganarPuntos();
+                }   
             }
             if (collition(r, e) && vidas === 0) {
                 gameOver = true;
@@ -68,6 +70,12 @@ function generarObstaculo() {
     setTimeout(() => {
         let bonus = new Bonus();
         enemies.push(bonus);
+        //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
+    }, (Math.floor(Math.random() * 2) + 1) * 8000).toString 
+
+    setTimeout(() => {
+        let moneda = new Moneda();
+        enemies.push(moneda);
         //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
     }, (Math.floor(Math.random() * 6) + 1) * 1000).toString 
 }
@@ -100,4 +108,5 @@ function ganarPuntos() {
 }
 /* preguntas:
 - ¿Como hago para que el al morir el personaje quede en el ultimo frame, no el primero?
+- Cuando agrego la clase Moneda, tengo problemas para borrarlo.
 */

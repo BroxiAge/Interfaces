@@ -54,7 +54,7 @@ body {
 }
 
 .zombie{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     border-bottom-left-radius: 30%;
     border-bottom-right-radius: 30%;
     width: 160px;
@@ -125,7 +125,7 @@ body {
 }
 
 .enemigo {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     position: absolute;
     border-top-left-radius: 30%;
     bottom: 20%;
@@ -153,6 +153,17 @@ body {
     to {
       left: -10%;
     }
+}
+
+.moneda {
+    position: absolute;
+    border-top-left-radius: 30%;
+    bottom: 60%;
+    height: 37px;
+    width: 40px;
+    z-index: 90;
+    background: url("images/plants-vs-zombie/moneda1.png");
+    animation:  flip 7s, enemigo 8s forwards linear;
 }
 
 @keyframes flip {
