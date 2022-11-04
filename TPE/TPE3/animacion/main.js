@@ -1,10 +1,9 @@
 "use strict"
 
 /* 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 */
-/* Jugar 1500 x 600 */
+/* Jugar 1500 x 700 */
 let gameOver = false;
 let runner = new Runner();
-let vidas = 3
 
 // Seteo los puntos iniciales, la primera vez.
 let score = 0;
@@ -32,19 +31,17 @@ function gameLoop() {
             let e = enemies[i].status();
 
             if (collition(r, e)) {
-                if (enemies[i].quienSoy() === 'enemigo' && (vidas > 0 && vidas < 4)){
-                    runner.removeVida(vidas);
-                    vidas--;
+                if (enemies[i].quienSoy() === 'enemigo' ){
+                    runner.removeVida();
                 }
-                if (enemies[i].quienSoy() === 'bonus' && (vidas < 3)){
-                    vidas++;
-                    runner.addVida(vidas);
+                if (enemies[i].quienSoy() === 'bonus'){
+                    runner.addVida();
                 }
                 if (enemies[i].quienSoy() === 'moneda'){
                     ganarPuntos();
                 }   
             }
-            if (collition(r, e) && vidas === 0) {
+            if (collition(r, e) && runner.sinVida()) {
                 gameOver = true;
             } 
         }

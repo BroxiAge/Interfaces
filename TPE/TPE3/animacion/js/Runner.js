@@ -2,7 +2,7 @@ class Runner extends Personaje {
     constructor() {
         super();
         this.element = document.getElementById("personaje");
-
+        this.vidas = 3;
         this.correr();
     }
 
@@ -50,11 +50,23 @@ class Runner extends Personaje {
         this.element.classList.add("muere");
     }
 
-    removeVida(nroVida) {
-        document.getElementById("vida" + nroVida).style.visibility = "hidden";
+    removeVida() {
+        if (this.vidas <= 3){
+            document.getElementById("vida" + this.vidas).style.visibility = "hidden";
+            this.vidas --;
+        }
     }
 
-    addVida(nroVida) {
-        document.getElementById("vida" + nroVida).style.visibility = "visible";
+    addVida() {
+        console.log("entre")
+        if(this.vidas > 0 && this.vidas < 4){
+            this.vidas++;
+            document.getElementById("vida" + this.vidas).style.visibility = "visible";
+        }
+    }
+
+    sinVida(){
+        if (this.vidas === 0)
+        return true;
     }
 }
