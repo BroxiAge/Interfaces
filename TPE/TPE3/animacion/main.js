@@ -28,12 +28,9 @@ function gameLoop() {
             enemies.splice(i, 0);
         } else {
 
-            //TODO: Verificar si choco, en el mismo runner.
-
             let r = runner.status();
             let e = enemies[i].status();
 
-            //TODO: Las vidas, las tiene que manejar el RUNNER.
             if (collition(r, e)) {
                 if (enemies[i].esEnemigo() && (vidas > 0 && vidas < 4)){
                     runner.removeVida(vidas);
@@ -43,10 +40,7 @@ function gameLoop() {
                     ganarPuntos();
                     vidas++;
                     runner.addVida(vidas);
-                }
-                if (enemies[i].esEnemigo() === "monedation"){
-                    ganarPuntos();
-                }   
+                }  
             }
             if (collition(r, e) && vidas === 0) {
                 gameOver = true;
@@ -54,6 +48,7 @@ function gameLoop() {
         }
     }
     
+
     if (gameOver) {
         clearInterval(GAME_LOOP);
         clearInterval(GAME_INTERVAL);
@@ -74,14 +69,10 @@ function generarObstaculo() {
         let bonus = new Bonus();
         enemies.push(bonus);
         //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
-    }, (Math.floor(Math.random() * 2) + 1) * 1000).toString 
-
-    setTimeout(() => {
-        let monedation = new Monedation();
-        enemies.push(monedation);
-        //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
-    }, (Math.floor(Math.random() * 5) + 1) * 1000).toString 
+    }, (Math.floor(Math.random() * 6) + 1) * 1000).toString 
 }
+
+
 
 function collition(rect1, rect2) {
     const isInHoriztonalBounds = rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x;
