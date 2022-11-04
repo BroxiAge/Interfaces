@@ -51,22 +51,34 @@ class Runner extends Personaje {
     }
 
     removeVida() {
-        if (this.vidas <= 3){
+        if (this.vidas <= 3) {
             document.getElementById("vida" + this.vidas).style.visibility = "hidden";
-            this.vidas --;
+            this.vidas--;
         }
     }
 
     addVida() {
         console.log("entre")
-        if(this.vidas > 0 && this.vidas < 4){
+        if (this.vidas > 0 && this.vidas < 4) {
             this.vidas++;
             document.getElementById("vida" + this.vidas).style.visibility = "visible";
         }
     }
 
-    sinVida(){
+    sinVida() {
         if (this.vidas === 0)
-        return true;
+            return true;
+    }
+
+    accion(obstaculo) {
+        if (obstaculo.quienSoy() === 'enemigo') {
+            runner.removeVida();
+        }
+        if (obstaculo.quienSoy() === 'bonus') {
+            runner.addVida();
+        }
+        if (obstaculo.quienSoy() === 'moneda') {
+            ganarPuntos();
+        }
     }
 }

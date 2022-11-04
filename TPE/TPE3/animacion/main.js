@@ -16,7 +16,7 @@ document.addEventListener('keydown', () => {
 let enemies = Array();
 
 /* cada 16 milisegundos verifica estado del juego */
-const GAME_LOOP = setInterval(gameLoop, 750);
+const GAME_LOOP = setInterval(gameLoop, 500);
 
 let GAME_INTERVAL = setInterval(generarObstaculo, 3000);
 
@@ -31,15 +31,7 @@ function gameLoop() {
             let e = enemies[i].status();
 
             if (collition(r, e)) {
-                if (enemies[i].quienSoy() === 'enemigo' ){
-                    runner.removeVida();
-                }
-                if (enemies[i].quienSoy() === 'bonus'){
-                    runner.addVida();
-                }
-                if (enemies[i].quienSoy() === 'moneda'){
-                    ganarPuntos();
-                }   
+                runner.accion(enemies[i]);
             }
             if (collition(r, e) && runner.sinVida()) {
                 gameOver = true;

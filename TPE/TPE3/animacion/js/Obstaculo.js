@@ -23,4 +23,8 @@ class Obstaculo extends Personaje {
             return "moneda"
         }
     }
+
+    accion() {
+        this.quienSoy()
+    }
 }
