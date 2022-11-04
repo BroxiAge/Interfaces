@@ -77,17 +77,17 @@ class Runner extends Personaje {
 
     accion(obstaculo) {
         if (obstaculo.quienSoy() === 'enemigo') {
-           //  this.sonidoTropiezo.play();
+            this.sonidoTropiezo.play();
             obstaculo.pop();
             runner.removeVida();
         }
         if (obstaculo.quienSoy() === 'bonus') {
-           //  this.sonidoCorazon.play();
+            this.sonidoCorazon.play();
             obstaculo.pop();
             runner.addVida();
         }
         if (obstaculo.quienSoy() === 'moneda') {
-            // this.sonidoMoneda.play();
+            this.sonidoMoneda.play();
             obstaculo.pop();
             ganarPuntos();
         }
