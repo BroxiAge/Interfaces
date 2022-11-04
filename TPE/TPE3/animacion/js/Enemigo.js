@@ -12,4 +12,9 @@ class Enemigo extends Obstaculo {
     accion(){
         
     }
+
+    elemento(){
+        return this.element;
+    }
+
 }

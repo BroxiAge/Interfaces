@@ -1,13 +1,8 @@
 "use strict"
-
 /* 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 */
 /* Jugar 1500 x 700 */
 let gameOver = false;
 let runner = new Runner();
-
-// Seteo los puntos iniciales, la primera vez.
-let score = 0;
-document.getElementById('score').innerHTML = "Score: " + score;
 
 document.addEventListener('keydown', () => {
     runner.saltar();
@@ -15,7 +10,6 @@ document.addEventListener('keydown', () => {
 
 let obstaculos = Array();
 
-/* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 500);
 
 const GAME_INTERVAL = setInterval(generarObstaculo, 3000);
@@ -63,16 +57,20 @@ function generarObstaculo() {
 function endGame() {
     document.getElementById("cielo").style.webkitAnimationPlayState = "paused";
     document.getElementById("piso").style.webkitAnimationPlayState = "paused";
+    //  let contenedor = document.getElementById("contenedor");
+    // obstaculos.forEach(element => {
+    //     contenedor.removeChild(element.elemento());
+    // });
     setTimeout(() => {
         document.getElementById("gameOver").classList.remove("ocultar");
         document.getElementById("personaje").classList.remove("zombie");
     }, "1800")
+    
 }
 
 function randomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
 
 /* preguntas:
 - ¿Como hago para que el al morir el personaje quede en el ultimo frame, no el primero?

@@ -5,6 +5,7 @@ class Runner extends Personaje {
         this.vidas = 3;
         this.correr();
         this.score = 0;
+        document.getElementById('score').innerHTML = "Score: " + this.score;
         this.sonidoMoneda = new Audio("./sonidos/mario-bros-coin.mp3");
         this.sonidoCorazon = new Audio("./sonidos/mario-bros-vida.mp3");
         this.sonidoTropiezo = new Audio("./sonidos/pacman-dies.mp3");
