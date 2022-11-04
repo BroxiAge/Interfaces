@@ -49,7 +49,6 @@ function gameLoop() {
             } 
         }
     }
-    
 
     if (gameOver) {
         clearInterval(GAME_LOOP);

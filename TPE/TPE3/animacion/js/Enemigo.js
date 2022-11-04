@@ -8,4 +8,8 @@ class Enemigo extends Obstaculo {
         document.getElementById("contenedor").appendChild(this.element);
         this.element.addEventListener("animationend", () => this.pop());
     }
+
+    accion(){
+        
+    }
 }

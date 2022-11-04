@@ -138,7 +138,7 @@ body {
 .bonus {
     position: absolute;
     border-top-left-radius: 30%;
-    bottom: 60%;
+    bottom: 50%;
     height: 37px;
     width: 48px;
     z-index: 90;
