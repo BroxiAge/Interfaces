@@ -1,13 +1,13 @@
 "use strict"
 
 /* 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 */
-
+/* Jugar 1500 x 600 */
 let gameOver = false;
 let runner = new Runner();
 let vidas = 3
 
 // Seteo los puntos iniciales, la primera vez.
-let score = 100;
+let score = 0;
 document.getElementById('score').innerHTML = "Score: " + score;
 
 document.addEventListener('keydown', () => {
@@ -70,7 +70,7 @@ function generarObstaculo() {
         let bonus = new Bonus();
         enemies.push(bonus);
         //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
-    }, (Math.floor(Math.random() * 2) + 1) * 8000).toString 
+    }, (Math.floor(Math.random() * 6) + 1) * 12000).toString 
 
     setTimeout(() => {
         let moneda = new Moneda();
