@@ -18,7 +18,7 @@ let enemies = Array();
 /* cada 16 milisegundos verifica estado del juego */
 const GAME_LOOP = setInterval(gameLoop, 500);
 
-let GAME_INTERVAL = setInterval(generarObstaculo, 3000);
+const GAME_INTERVAL = setInterval(generarObstaculo, 3000);
 
 function gameLoop() {
     
@@ -52,23 +52,18 @@ function generarObstaculo() {
     setTimeout(() => {
         let enemigo = new Enemigo();
         enemies.push(enemigo);
-        //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
     }, (Math.floor(Math.random() * 3) + 1) * 1000).toString 
 
     setTimeout(() => {
         let bonus = new Bonus();
         enemies.push(bonus);
-        //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
     }, (Math.floor(Math.random() * 6) + 1) * 12000).toString 
 
     setTimeout(() => {
         let moneda = new Moneda();
         enemies.push(moneda);
-        //Esto es porque el GAME_INTERVAL me llama cada 3 segundos, luego YO decido cada cuanto generar un enemigo. 
     }, (Math.floor(Math.random() * 6) + 1) * 1000).toString 
 }
-
-
 
 function collition(rect1, rect2) {
     const isInHoriztonalBounds = rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x;
@@ -86,7 +81,7 @@ function endGame() {
     }, "1800")
 }
 
-function randomIntFromInterval(min, max) { // min and max included 
+function randomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
@@ -96,5 +91,4 @@ function ganarPuntos() {
 }
 /* preguntas:
 - ¿Como hago para que el al morir el personaje quede en el ultimo frame, no el primero?
-- Cuando agrego la clase Moneda, tengo problemas para borrarlo.
 */
