@@ -72,12 +72,16 @@ class Runner extends Personaje {
 
     accion(obstaculo) {
         if (obstaculo.quienSoy() === 'enemigo') {
+            obstaculo.pop();
+            this.element.classList.add("muere");
             runner.removeVida();
         }
         if (obstaculo.quienSoy() === 'bonus') {
+            obstaculo.pop();
             runner.addVida();
         }
         if (obstaculo.quienSoy() === 'moneda') {
+            obstaculo.pop();
             ganarPuntos();
         }
     }
