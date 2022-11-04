@@ -1,6 +1,6 @@
 "use strict"
 
-/* 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 */
+/* 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 */
 /* Jugar 1500 x 700 */
 let gameOver = false;
 let runner = new Runner();
