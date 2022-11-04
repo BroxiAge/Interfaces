@@ -73,10 +73,7 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function ganarPuntos() {
-    score++;
-    document.getElementById('score').innerHTML = "Score: " + score;
-}
+
 /* preguntas:
 - ¿Como hago para que el al morir el personaje quede en el ultimo frame, no el primero?
 */
